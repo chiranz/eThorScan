@@ -42,7 +42,7 @@ export default function Navbar({}: Props): ReactElement {
           />
           <path fill="#2298bd" d="M0 212.32l127.96 75.638v-133.8z" />
         </svg>
-        <h2 className="text-lg ml-4 font-medium">ThorScan</h2>
+        <h2 className="text-lg ml-4 font-medium">eThorscan</h2>
       </div>
       <ul id="nav-links">
         <li>

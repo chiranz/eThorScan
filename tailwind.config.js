@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       gridTemplateRows: {
         "3m": "auto 1fr auto",
+        "2m": "auto 1fr",
       },
     },
   },

@@ -12,7 +12,7 @@ function App({ Component, pageProps }: AppProps) {
       className={joinClasses(
         "grid",
         "grid-rows-3m",
-        "h-screen",
+        "min-h-screen",
         "max-w-4xl",
         "mx-auto",
         "text-center"
