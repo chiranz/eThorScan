@@ -13,7 +13,7 @@ function App({ Component, pageProps }: AppProps) {
         "grid",
         "grid-rows-3m",
         "h-screen",
-        "max-w-2xl",
+        "max-w-4xl",
         "mx-auto",
         "text-center"
       )}
