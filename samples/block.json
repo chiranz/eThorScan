@@ -1,0 +1,27 @@
+{
+  "hash": "0x9626308737ddeddcdfe1397df152c159ca4e161a35d416328da43a392d5fb992",
+  "parentHash": "0x33fcb181ff4dd3751b9d81b7123183943b0d5f92b1fd744392ee6bfb3e66329a",
+  "number": 12925795,
+  "timestamp": 1627632007,
+  "nonce": "0x5675e07a49ecb81c",
+  "difficulty": 6951647580486191,
+  "gasLimit": {
+    "type": "BigNumber",
+    "hex": "0xe4a7de"
+  },
+  "gasUsed": {
+    "type": "BigNumber",
+    "hex": "0xe48279"
+  },
+  "miner": "0x829BD824B016326A401d083B33D092293333A830",
+  "extraData": "0xe4b883e5bda9e7a59ee4bb99e9b1bc020821",
+  "transactions": [
+    "0xd93dc1eba096ef9b18de5156a37c7bd207ea819003275f24f19dd7d4e1396c8c",
+    "0x6204c695b2a9be06e053d68f86fd74b568c6e36d29aef563d03b8925c80a6c3a",
+    "0x060f96e1ae812090d7d7dfce8eefd1a6370680d570edc3eabd14ca1d0ac704f6",
+    "0xb9e0d45d78c658cc254d335334f4fea451c802ad1c59401c0aedc8e3c4dfb06f",
+    "0x2248a62ecc2f45552ca33af24b8eecfe18ce47c920ce5d40db687df8d52ee189",
+    "0x2ff9280567c94a311c343b55abdfb3eaa4e4a3cf5df69aad88ca62d79ac06e5c",
+    "0x3ecefe59be162dd2edef05ec6ae2f7945e1d1fdebab38f2bfe60ffe18eeca3bd"
+  ]
+}

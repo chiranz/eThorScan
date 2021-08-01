@@ -5,6 +5,7 @@ import "../styles/index.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { joinClasses } from "../utils";
+import { GlobalProvider } from "../context/GlobalContext";
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,8 +19,10 @@ function App({ Component, pageProps }: AppProps) {
         "text-center"
       )}
     >
-      <Navbar />
-      <Component {...pageProps} />
+      <GlobalProvider>
+        <Navbar />
+        <Component {...pageProps} />
+      </GlobalProvider>
       <Footer />
     </div>
   );

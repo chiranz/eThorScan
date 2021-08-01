@@ -1,10 +1,13 @@
 import React, { ReactElement } from "react";
-import { joinClasses } from "../utils";
+import { GlobalContext } from "../context/GlobalContext";
+import { GlobalContextType } from "../types";
+import { joinClasses, networkNameFromId } from "../utils";
 import NextLink from "./NextLink";
 
 interface Props {}
 
 export default function Navbar({}: Props): ReactElement {
+  const { provider } = React.useContext(GlobalContext) as GlobalContextType;
   return (
     <div
       className={joinClasses(
@@ -42,12 +45,26 @@ export default function Navbar({}: Props): ReactElement {
           />
           <path fill="#2298bd" d="M0 212.32l127.96 75.638v-133.8z" />
         </svg>
-        <h2 className="text-lg ml-4 font-medium">eThorscan</h2>
+        <h2 className="ml-4 text-lg font-medium">eThorscan</h2>
       </div>
-      <ul id="nav-links">
-        <li>
-          <NextLink href="/">Home</NextLink>
+      <ul id="nav-links" className="inline-flex">
+        <li className="mr-2">
+          <NextLink href="/" navLink={true}>
+            Home
+          </NextLink>
         </li>
+        <li className="mr-2 ">
+          <NextLink href="/balance" navLink={true}>
+            Balance
+          </NextLink>
+        </li>
+        {provider && (
+          <li className="mr-2 text-yellow-700">
+            {networkNameFromId[
+              provider.network ? provider.network.chainId : null
+            ] || "Unknown"}
+          </li>
+        )}
       </ul>
     </div>
   );
