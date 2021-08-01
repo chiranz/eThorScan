@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { ethers } from "ethers";
 import { NextRouter, useRouter } from "next/router";
 import React, { ReactElement } from "react";
+import MapField from "../../components/MapField";
 import NextLink from "../../components/NextLink";
 import useBlock from "../../hooks/useBlock";
 import { joinClasses } from "../../utils";
@@ -32,40 +32,26 @@ export default function BlockPage({}: Props): ReactElement {
         <h3 className="text-lg font-medium capitalize">hash: </h3>{" "}
         <span className="ml-4">{block.hash}</span>
       </div>
-      <div className="inline-flex items-center mt-4">
-        <h3 className="text-lg font-medium capitalize">Timestamp: </h3>{" "}
-        <span className="ml-4 text-gray-500">
-          {" "}
-          {dayjs.unix(block.timestamp).fromNow()}
-        </span>
-      </div>
-      <div className="inline-flex items-center mt-4">
-        <h3 className="text-lg font-medium capitalize">Difficulty: </h3>{" "}
-        <span className="ml-4 text-gray-500"> {block.difficulty}</span>
-      </div>
-      <div className="inline-flex items-center mt-4">
-        <h3 className="text-lg font-medium capitalize">gas limit: </h3>{" "}
-        <span className="ml-4 text-gray-500">
-          {" "}
-          {block.gasLimit.toString()} Wei
-        </span>
-      </div>
-      <div className="inline-flex items-center mt-4">
-        <h3 className="text-lg font-medium capitalize">gas used: </h3>{" "}
-        <span className="ml-4 text-gray-500">
-          {" "}
-          {block.gasUsed.toString()} Wei
-        </span>
-      </div>
-      <div className="inline-flex items-center mt-4">
-        <h3 className="text-lg font-medium capitalize">miner: </h3>{" "}
-        <span className="ml-4 text-gray-500"> {block.miner}</span>
-      </div>
+
+      <MapField
+        descText="timestamp"
+        value={dayjs.unix(block.timestamp).fromNow()}
+      />
+      <MapField descText="difficulty" value={block.difficulty} />
+      <MapField
+        descText="gas limit"
+        value={`${block.gasLimit.toString()} Gwei`}
+      />
+      <MapField
+        descText="gas used"
+        value={`${block.gasUsed.toString()} Gwei`}
+      />
+      <MapField descText="miner" value={block.miner} />
       <div className="flex mt-4">
         <h3 className="text-lg font-medium capitalize">Transactions: </h3>{" "}
         <div className="flex flex-col overflow-y-scroll max-h-48">
           {block.transactions.map((transaction) => (
-            <div>
+            <div title="view transaction">
               <NextLink href={`/txn/${transaction}`}>{transaction}</NextLink>
             </div>
           ))}

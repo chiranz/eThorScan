@@ -32,3 +32,19 @@ interface FormattedBlock {
   gasUsed: string;
   timestamp: number;
 }
+
+interface RawTxn {
+  chainId: number;
+  blockHash: string;
+  blockNumber: number;
+  confirmations: number;
+  value: BigNumber;
+  from: string;
+  to: string;
+  gasLimit: BigNumber;
+  gasPrice: BigNumber;
+  data: string;
+  r: string;
+  s: string;
+  v: number;
+}
