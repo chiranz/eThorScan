@@ -54,7 +54,7 @@ export default function TxnPage({}: Props): ReactElement {
         value={`${txn.gasLimit.toString()} Gwei`}
       />
       <MapField descText="gas price" value={`${txn.gasPrice.toString()} Wei`} />
-      <MapField descText="data" value={txn.data} />
+      <MapField descText="data" value={`${txn.data.slice(0, 40)}....`} />
       <MapField descText="r" value={txn.r} />
       <MapField descText="s" value={txn.s} />
       <MapField descText="v" value={txn.v} />
