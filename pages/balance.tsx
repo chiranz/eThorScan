@@ -1,9 +1,8 @@
 import { ethers } from "ethers";
 import React, { ReactElement } from "react";
-import Button from "../components/Button";
+import NextLink from "../components/NextLink";
 import SearchField from "../components/SearchField";
 import { GlobalContext } from "../context/GlobalContext";
-import useEthBalance from "../hooks/useEthBalance";
 import { GlobalContextType } from "../types";
 
 interface Props {}
@@ -18,9 +17,13 @@ export default function balance({}: Props): ReactElement {
   const [loading, setLoading] = React.useState(false);
   const handleSearch = async (address: string) => {
     setLoading(true);
-    const _bal = await provider.getBalance(address);
-    // const _txnCount = await provider.getTransactionCount(address)
-    setWallet({ address, balance: ethers.utils.formatEther(_bal) });
+    try {
+      const _bal = await provider.getBalance(address);
+      // const _txnCount = await provider.getTransactionCount(address)
+      setWallet({ address, balance: ethers.utils.formatEther(_bal) });
+    } catch (err) {
+      console.log(err);
+    }
     setLoading(false);
   };
   return (
@@ -29,12 +32,19 @@ export default function balance({}: Props): ReactElement {
         actionText="Search"
         handleSearch={handleSearch}
         placeHolder="enter address"
+        loading={loading}
       />
       <div className="mt-10">
         {wallet ? (
-          <h1>Your balance is {wallet.balance} Eth</h1>
+          <h1>
+            Balance for address{" "}
+            <NextLink href={`/address/${wallet.address}`}>
+              {wallet.address}
+            </NextLink>{" "}
+            is {parseFloat(wallet.balance).toFixed(4)} Eth
+          </h1>
         ) : (
-          <h1>Nothing to show here. Please enter address you want to query.</h1>
+          <h1>Please enter the address you want to query.</h1>
         )}
       </div>
     </div>

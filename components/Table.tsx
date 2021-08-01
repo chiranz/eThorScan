@@ -48,7 +48,7 @@ export default function Table(): ReactElement {
                               className="text-sm font-medium text-gray-900"
                               title="block height"
                             >
-                              <NextLink href={`/block/:${block.height}`}>
+                              <NextLink href={`/block/${block.height}`}>
                                 {block.height}
                               </NextLink>
                             </div>
@@ -66,7 +66,7 @@ export default function Table(): ReactElement {
                           className="text-sm text-gray-900"
                           title="miner address"
                         >
-                          <NextLink href={`address/:${block.miner}`}>
+                          <NextLink href={`address/${block.miner}`}>
                             {block.miner.slice(0, 7)}...
                           </NextLink>
                         </div>
