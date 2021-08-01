@@ -54,8 +54,8 @@ export default function Navbar({}: Props): ReactElement {
           </NextLink>
         </li>
         <li className="mr-2 ">
-          <NextLink href="/balance" navLink={true}>
-            Balance
+          <NextLink href="/address" navLink={true}>
+            Address
           </NextLink>
         </li>
         {provider && (
