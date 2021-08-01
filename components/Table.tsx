@@ -48,6 +48,7 @@ export default function Table(): ReactElement {
                               className="text-sm font-medium text-gray-900"
                               title="block height"
                             >
+                              Block Height:
                               <NextLink href={`/block/${block.height}`}>
                                 {block.height}
                               </NextLink>
@@ -56,7 +57,7 @@ export default function Table(): ReactElement {
                               className="text-sm text-gray-500"
                               title="timestamp"
                             >
-                              {dayjs(block.timestamp).fromNow()}
+                              {dayjs.unix(block.timestamp).fromNow()}
                             </div>
                           </div>
                         </div>
@@ -66,6 +67,7 @@ export default function Table(): ReactElement {
                           className="text-sm text-gray-900"
                           title="miner address"
                         >
+                          Miner:{" "}
                           <NextLink href={`address/${block.miner}`}>
                             {block.miner.slice(0, 7)}...
                           </NextLink>
@@ -74,7 +76,7 @@ export default function Table(): ReactElement {
                           className="text-sm text-gray-500"
                           title="transaction count"
                         >
-                          {block.transactionCount}
+                          Tx Count: {block.transactionCount}
                         </div>
                       </td>
                     </tr>

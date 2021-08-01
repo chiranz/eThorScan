@@ -62,7 +62,7 @@ export default function Navbar({}: Props): ReactElement {
           <li className="mr-2 text-yellow-700">
             {networkNameFromId[
               provider.network ? provider.network.chainId : null
-            ] || "Unknown"}
+            ] || "Loading.."}
           </li>
         )}
       </ul>
